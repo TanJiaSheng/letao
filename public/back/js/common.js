@@ -23,4 +23,4 @@ $(document).ajaxStop(function() {
         //结束进度条
         NProgress.done();
     },500);
-})
+});
