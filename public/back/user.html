@@ -70,6 +70,12 @@
                 <!--挖个坑-->
                 </tbody>
             </table>
+
+            <!--3.X 的bootstrap 版本， dom 结构必须使用 ul-->
+            <!--准备容器-->
+            <div class="text-right">
+                <ul id="paginator"></ul>
+            </div>
         </div>
     </div>
 </div>
@@ -103,7 +109,8 @@
 <script type="text/html" id="tpl">
     {{ each rows v i }}
     <tr>
-        <td>{{ i+1 }}</td>
+        <!-- 第几个 = 当前页第几个 + 前面页数*每页条数 -->
+        <td>{{ i+1 + (page - 1) * size}}</td>
         <td>{{ v.username }}</td>
         <td>{{ v.mobile}}</td>
         <!--isDelete 标记用户状态， 1 表示启用状态， 0 表示禁用状态-->
@@ -124,6 +131,7 @@
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/user.js"></script>
 </body>
