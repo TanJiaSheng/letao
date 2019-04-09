@@ -13,7 +13,7 @@ $(function() {
             },
             dataType: "json",
             success: function(info) {
-                console.log(info);
+                //console.log(info);
                 //将数据和模板相结合，进行页面渲染
                 var htmlStr = template("tpl", info);
                 $('tbody').html(htmlStr);
