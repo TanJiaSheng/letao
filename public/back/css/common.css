@@ -35,6 +35,9 @@ a:active {
 .mt_150 {
     margin-top: 150px;
 }
+.mb_20{
+    margin-bottom: 20px;
+}
 
 /*侧边栏*/
 .lt_aside {

@@ -54,13 +54,34 @@
             <li class="active">分类管理</li>
             <li class="active">一级分类</li>
         </ol>
+        <div class="lt_contenyt">
+            <button class="btn btn-default mb_20">添加分类</button>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th width="20%">序号</th>
+                    <th width="8011%">一级分类名</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--挖坑-->
+                </tbody>
+            </table>
+            <div class="text-right">
+                <ul id="paginator"></ul>
+            </div>
+        </div>
     </div>
 </div>
 
-<!--role aria- 都是给盲人设备识别的，可以直接删掉-->
-<!--添加了 data-dismiss="modal" 可用于关闭模态框-->
-<!--给莫泰框添加 modal-lg大型，modal-sm 小型，不加 默认中等-->
-<!--最外层蒙层-->
+<script type="text/html" id="tpl">
+    {{ each rows v i}}
+        <tr>
+            <td>{{ i + 1 + (page - 1) * size }}</td>
+            <td>{{ v.categoryName }}</td>
+        </tr>
+    {{ /each }}
+</script>
 <div class="modal fade" tabindex="-1" id="logoutModal">
     <!--模态框结构-->
     <div class="modal-dialog modal-sm" role="document">
@@ -85,6 +106,9 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/first.js"></script>
 </body>
 </html>
