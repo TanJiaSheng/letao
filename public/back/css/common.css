@@ -103,7 +103,6 @@ a:active {
     padding-left: 180px;
     height: 1000px;
     padding-top: 50px;
-    background-color: #pink;
     transition: all 1s;
 }
 .lt_main.hidemenu {
@@ -129,4 +128,10 @@ a:active {
     text-align: center;
     color: #fff;
     font-size: 20px;
+}
+
+.echarts_1,
+.echarts_2 {
+    width: 48%;
+    height: 600px;
 }

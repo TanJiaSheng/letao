@@ -1,3 +1,28 @@
+// 登录拦截功能，登录界面不需要校验，不用登录直接访问
+// 前后端分离了，前段是不知道该用户是否登录了，但后台知道
+// 发送 ajax 请求，查询用户状态即可
+// (1) 用户已登录，啥都不做，让用户继续访问
+// (2) 用户未登录，拦截到登录页
+
+if(location.href.indexOf("login.html") === -1){
+    // 地址栏中没有 login.html，说明不是登录页，需要进行登录拦截
+    $.ajax({
+        type: "get",
+        url: "/employee/checkRootLogin",
+        dataType: "json",
+        success: function(info) {
+            //console.log(info);
+            if(info.success) {
+                //已登录，让用户继续访问
+            }
+            if(info.error === 400) {
+                //未登录，拦截到登录页
+                location.href = "login.html";
+            }
+        }
+    });
+}
+
 //实现在第一个ajax发送请求的时候，开启进度条
 //在所有的ajax请求都完成的时候，结束进度条
 
@@ -24,31 +49,6 @@ $(document).ajaxStop(function() {
         NProgress.done();
     },500);
 });
-
-// 登录拦截功能，登录界面不需要校验，不用登录直接访问
-// 前后端分离了，前段是不知道该用户是否登录了，但后台知道
-// 发送 ajax 请求，查询用户状态即可
-// (1) 用户已登录，啥都不做，让用户继续访问
-// (2) 用户未登录，拦截到登录页
-
-if(location.href.indexOf("login.html") === -1){
-    // 地址栏中没有 login.html，说明不是登录页，需要进行登录拦截
-    $.ajax({
-        type: "get",
-        url: "/employee/checkRootLogin",
-        dataType: "json",
-        success: function(info) {
-            //console.log(info);
-            if(info.success) {
-                //已登录，让用户继续访问
-            }
-            if(info.error === 400) {
-                //未登录，拦截到登录页
-                location.href = "login.html";
-            }
-        }
-    });
-}
 
 
 $(function() {
