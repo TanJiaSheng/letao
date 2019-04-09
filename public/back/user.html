@@ -53,13 +53,26 @@
             <li><a href="index.html">管理系统</a></li>
             <li class="active">用户管理</li>
         </ol>
+        <div class="lt_content">
+            <!--表格-->
+            <!--添加类，即可添加样式效果-->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <!--挖个坑-->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
-<!--role aria- 都是给盲人设备识别的，可以直接删掉-->
-<!--添加了 data-dismiss="modal" 可用于关闭模态框-->
-<!--给莫泰框添加 modal-lg大型，modal-sm 小型，不加 默认中等-->
-<!--最外层蒙层-->
 <div class="modal fade" tabindex="-1" id="logoutModal">
     <!--模态框结构-->
     <div class="modal-dialog modal-sm" role="document">
@@ -80,10 +93,38 @@
         </div>
     </div>
 </div>
+<!--
+    模板引擎使用步骤
+    1. 引包
+    2. 准备模板
+    3. 准备数据
+    4. 将模板和数据相结合，进行页面渲染
+-->
+<script type="text/html" id="tpl">
+    {{ each rows v i }}
+    <tr>
+        <td>{{ i+1 }}</td>
+        <td>{{ v.username }}</td>
+        <td>{{ v.mobile}}</td>
+        <!--isDelete 标记用户状态， 1 表示启用状态， 0 表示禁用状态-->
+        <td>{{ v.isDelete === 1 ? "正常" : "禁用"}}</td>
+        <td>
+            {{ if v.isDelete === 1 }}
+                <button class="btn btn-danger">禁用</button>
+            {{ /if }}
+            {{ if v.isDelete === 0 }}
+                <button class="btn btn-success">启用</button>
+            {{ /if }}
+        </td>
+    </tr>
+    {{ /each }}
+</script>
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/user.js"></script>
 </body>
 </html>
