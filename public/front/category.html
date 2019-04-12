@@ -31,14 +31,7 @@
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
                     <ul>
-                        <li><a class="current" href="#">运动馆</a></li>
-                        <li><a href="#">运动馆</a></li>
-                        <li><a href="#">运动馆</a></li>
-                        <li><a href="#">运动馆</a></li>
-                        <li><a href="#">运动馆</a></li>
-                        <li><a href="#">运动馆</a></li>
-                        <li><a href="#">运动馆</a></li>
-                        <li><a href="#">运动馆</a></li>
+                        <!--挖坑-->
                     </ul>
 
                 </div>
@@ -48,36 +41,7 @@
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
                     <ul>
-                        <li>
-                            <a href="#">
-                                <img src="./images/brand1.png" alt="">
-                                <p>耐克</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="./images/brand2.png" alt="">
-                                <p>阿迪达斯</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="./images/brand3.png" alt="">
-                                <p>三叶草</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="./images/brand4.png" alt="">
-                                <p>New Balance</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="./images/brand5.png" alt="">
-                                <p>匡威</p>
-                            </a>
-                        </li>
+                        <!--挖坑-->
                     </ul>
                 </div>
             </div>
@@ -110,8 +74,29 @@
         </ul>
     </div>
 </div>
+<script type="text/html" id="leftTpl">
+    {{ each rows v i}}
+        <li><a class="{{ i === 0 ? 'current': ''}}" href="#" data-id="{{ v.id }}">{{ v.categoryName }}</a></li>
+    {{ /each }}
+</script>
+<script type="text/html" id="rightTpl">
+    {{ if rows.length === 0 }}
+        <p>没有更多分类信息了</p>
+    {{ else }}
+        {{ each rows v i}}
+        <li>
+            <a href="#">
+                <img src="{{ v.brandLogo }}" alt="">
+                <p>{{ v.brandName }}</p>
+            </a>
+        </li>
+        {{ /each }}
+    {{ /if }}
+</script>
 <script src="./lib/mui/js/mui.js"></script>
 <script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/category.js"></script>
 </body>
 </html>
