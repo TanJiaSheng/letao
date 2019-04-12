@@ -1,0 +1,12 @@
+1.双伪元素清浮动
+before的作用：防塌陷
+after的作用： 清浮动
+.class:before, .class:after {
+    display: table;
+    content: '';
+}
+.class:after {
+    clear:both;
+}
+
+2.启动3d转换会把gpu的性能提到最高
