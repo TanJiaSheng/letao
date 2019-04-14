@@ -72,7 +72,7 @@
     </div>
 </div>
 <script type="text/html" id="historyTpl">
-    {{ if !arr }}
+    {{ if arr.length === 0 }}
         <P>没有更多数据了</P>
     {{ else }}
         <div class="title">
@@ -84,7 +84,7 @@
                 {{ each arr v i}}
                 <li>
                     <a href="#" class="mui-pull-left">{{ arr[i] }}</a>
-                    <i class="mui-icon mui-icon-closeempty mui-pull-right"></i>
+                    <i data-index="{{ i }}" class="btn_del mui-icon mui-icon-closeempty mui-pull-right"></i>
                 </li>
                 {{ /each }}
             </ul>
