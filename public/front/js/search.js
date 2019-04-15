@@ -123,5 +123,8 @@ $(function() {
         render();
         // 清空输入框
         $('.search_input').val("");
-    })
+
+        // 添加跳转, 跳转到商品列表页
+        location.href = "searchList.html?key=" + key;
+    });
 });

@@ -11,3 +11,27 @@ var gallery = mui('.mui-slider');
 gallery.slider({
     interval:5000//自动轮播周期，若为0则不自动播放，默认为0
 });
+
+// 作用：专门用于解析地址兰参数
+function getSearch( k ) {
+    // 获取地址栏参数
+    var search = location.search;
+
+    // 将其解码的中文
+    search = decodeURI( search );
+
+    // 去掉问号
+    search = search.slice(1);
+
+    // 通过 & 分割成数组
+    var arr = search.split("&");
+
+    var obj = {};
+    arr.forEach(function (v, i) { // v 表示每箱 "name=tt"
+        var key = v.split("=")[0];
+        var value = v.split("=")[1];
+        obj[ key ] = value;
+    });
+
+    return obj[k];
+}
