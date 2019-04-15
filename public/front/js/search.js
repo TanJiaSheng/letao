@@ -96,7 +96,9 @@ $(function() {
         var key = $(".search_input").val().trim();
 
         if ( key === '') {
-            mui.toast("请输入搜素关键字");
+            mui.toast("请输入搜素关键字", {
+                duration: 2000
+            });
             return;
         }
         // 获取本地历史记录
