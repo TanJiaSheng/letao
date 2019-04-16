@@ -55,7 +55,6 @@ $(function () {
             },
             dataType: "json",
             success: function ( info ) {
-                // console.log( info )
                 // 加入购物车操作需要登录
 
                 // (1) 未登录情况
