@@ -1,12 +1,11 @@
 $(function() {
-    // 一进入也买你, 根据搜素关键字, 发送ajax请求, 进行页面渲染
-    render();
 
     // 功能1：获取地址栏传递过来的搜素关键字, 设置给 input
     var key = getSearch("key");
     // 设置给 input
     $('.search_input').val(key);
-
+    // 一进入也买你, 根据搜素关键字, 发送ajax请求, 进行页面渲染
+    render();
 
     // 根据关键字，进行渲染
     function render() {
@@ -14,7 +13,7 @@ $(function() {
         $('.lt_product').html('<div class="loading"></div>');
         var params = {};
         // 三个必传的参数
-        params.proName = $(".search_input").val();
+        params.proName = $(".search_input").val().trim();
         params.page = 1;
         params.pageSize = 100;
         // 两个可传 可不传的参数
@@ -40,7 +39,6 @@ $(function() {
                  data: params,
                  dataType: "json",
                  success: function ( info ) {
-                     console.log(info);
                      var htmlStr = template("productTpl", info);
                      $('.lt_product').html(htmlStr);
                  }
