@@ -33,3 +33,8 @@
 .lt_main .mui-table-cell {
     display: block;
 }
+
+
+.lt_size, .lt_num {
+    text-align: left;
+}
